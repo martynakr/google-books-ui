@@ -1,0 +1,16 @@
+@use "./partials/palette";
+@use "./partials/text-styles";
+@use "./modules/header.scss";
+@use "./modules/search-form.scss";
+@use "./modules/books-grid.scss";
+@use "./modules/footer.scss";
+@use "./mixins/mixins.scss";
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
