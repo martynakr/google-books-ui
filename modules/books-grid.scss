@@ -5,6 +5,9 @@
 #books-grid {
 	margin-top: 90px;
 	margin-bottom: 60px;
+	@include mixins.phone {
+		margin-top: 40px;
+	}
 }
 
 .container__books-grid {
@@ -32,21 +35,38 @@ h4 {
 	@extend %small-heading;
 }
 
-.books-grid__card {
-	position: relative;
-	display: flex;
+.container__books-grid > div {
 	border: 1px solid black;
-	padding: 15px;
-	@include mixins.phone {
-		flex-direction: column;
-	}
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
 }
 
-.books-grid__img > img {
-	background-color: black;
-	height: 300px;
-	width: 200px;
-	margin: 15px;
+.container__books-grid > div > * {
+	padding: 10px;
+}
+
+// .books-grid__card {
+// 	position: relative;
+// 	display: flex;
+// 	flex-direction: column;
+// 	border: 1px solid black;
+// 	padding: 15px;
+// 	@include mixins.phone {
+// 		flex-direction: column;
+// 	}
+// 	&:hover {
+// 		border: none;
+// 		transition: 0.5s ease;
+// 	}
+// }
+
+.container__books-grid > div > img {
+	height: 250px;
+	width: auto;
+	margin-bottom: 15px;
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
 		rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
@@ -59,12 +79,26 @@ h4 {
 	margin: 15px;
 }
 
-.books-grid__decs > h4,
-.author {
+.books-grid__decs > h4 {
+	padding-top: 30px;
+	padding-bottom: 15px;
 	@include mixins.phone {
 		padding-bottom: 15px;
 	}
 }
+
+// .books-grid__decs p {
+// 	font-size: 12px;
+// }
+
+// .books-grid__decs > .author {
+// 	font-size: 16px;
+// 	text-transform: uppercase;
+// 	padding-bottom: 15px;
+// 	@include mixins.phone {
+// 		padding-bottom: 15px;
+// 	}
+// }
 
 .books-grid__card--overlay {
 	position: absolute;

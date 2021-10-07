@@ -78,7 +78,8 @@ p {
 	word-wrap: normal;
 }
 
-.btn {
+.btn,
+#btn {
 	@extend %btn-font;
 	padding-left: 20px;
 	padding-right: 20px;
