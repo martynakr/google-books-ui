@@ -79,7 +79,8 @@ p {
 }
 
 .btn,
-#btn {
+#btn,
+.btn-again {
 	@extend %btn-font;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -99,5 +100,15 @@ p {
 		background-color: black;
 		color: white;
 		transition: 0.5s ease;
+	}
+}
+
+.btn-again {
+	margin: 20px;
+}
+
+#btn {
+	&.invisible {
+		display: none;
 	}
 }

@@ -10,8 +10,6 @@
 h3 {
 	@extend %reg-heading;
 	margin-bottom: 20px;
-
-	
 }
 
 .book-finder__input {
@@ -23,10 +21,15 @@ h3 {
 	background-color: transparent;
 	margin: 20px;
 	width: 45%;
+
 	@extend %para;
 	@include mixins.landscape-tablet-and-smaller {
 		width: 90%;
 		font-size: 13px;
+	}
+
+	&.invisible {
+		display: none;
 	}
 }
 
@@ -49,4 +52,10 @@ form {
 	margin-top: 2%;
 	text-align: center;
 	padding: 45px;
+}
+
+.search-form__btn {
+	&.invisible {
+		display: none;
+	}
 }

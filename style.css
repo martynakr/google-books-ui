@@ -16,7 +16,7 @@ h4 {
   font-size: 24px;
 }
 
-.book-finder__input, p {
+.description, .book-finder__input, p {
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -24,7 +24,8 @@ h4 {
 }
 
 a, .btn,
-#btn {
+#btn,
+.btn-again {
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
   text-decoration: none;
@@ -112,7 +113,8 @@ p {
 }
 
 .btn,
-#btn {
+#btn,
+.btn-again {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -122,16 +124,26 @@ p {
 }
 @media only screen and (max-width: 768px) {
   .btn__header,
-#btn__header {
+#btn__header,
+.btn-again__header {
     margin-left: 40px;
     margin-bottom: 20px;
   }
 }
 .btn:hover,
-#btn:hover {
+#btn:hover,
+.btn-again:hover {
   background-color: black;
   color: white;
   transition: 0.5s ease;
+}
+
+.btn-again {
+  margin: 20px;
+}
+
+#btn.invisible {
+  display: none;
 }
 
 #book-finder {
@@ -159,6 +171,9 @@ h3 {
     font-size: 13px;
   }
 }
+.book-finder__input.invisible {
+  display: none;
+}
 
 @media only screen and (max-width: 992px) {
   form {
@@ -178,6 +193,10 @@ h3 {
   margin-top: 2%;
   text-align: center;
   padding: 45px;
+}
+
+.search-form__btn.invisible {
+  display: none;
 }
 
 #books-grid {
@@ -214,6 +233,10 @@ h3 {
   }
 }
 
+h4 {
+  text-align: center;
+}
+
 .container__books-grid > div {
   border: 1px solid black;
   padding: 20px;
@@ -221,6 +244,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   text-align: left;
+  cursor: pointer;
 }
 
 .container__books-grid > div > * {
@@ -230,7 +254,7 @@ h3 {
 .container__books-grid > div > img {
   height: 200px;
   width: auto;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
@@ -258,28 +282,55 @@ h3 {
   text-transform: uppercase;
 }
 
-.books-grid__card--overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background-color: #ffe6cd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .books-grid__card:hover .books-grid__card--overlay {
   opacity: 0.95;
 }
 
+.description {
+  font-size: 13px;
+}
+
 a {
   font-size: 22px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid black;
+  width: 40%;
+  height: auto;
+}
+
+.modal-content > p {
+  padding: 20px;
+  text-align: left;
 }
 
 footer {
@@ -301,4 +352,5 @@ footer > p {
 html,
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }

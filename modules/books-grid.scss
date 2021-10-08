@@ -33,6 +33,7 @@
 
 h4 {
 	@extend %small-heading;
+	text-align: center;
 }
 
 .container__books-grid > div {
@@ -42,6 +43,7 @@ h4 {
 	flex-direction: column;
 	align-items: center;
 	text-align: left;
+	cursor: pointer;
 }
 
 .container__books-grid > div > * {
@@ -66,7 +68,7 @@ h4 {
 .container__books-grid > div > img {
 	height: 200px;
 	width: auto;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
 		rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
@@ -101,27 +103,62 @@ h4 {
 // 	}
 // }
 
-.books-grid__card--overlay {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 100%;
-	width: 100%;
-	opacity: 0;
-	transition: 0.5s ease;
-	background-color: palette.$peach;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+// .books-grid__card--overlay {
+// 	position: absolute;
+// 	top: 0;
+// 	bottom: 0;
+// 	left: 0;
+// 	right: 0;
+// 	height: 100%;
+// 	width: 100%;
+// 	opacity: 0;
+// 	transition: 0.5s ease;
+// 	background-color: palette.$peach;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
 
 .books-grid__card:hover .books-grid__card--overlay {
 	opacity: 0.95;
 }
 
+.description {
+	@extend %para;
+	font-size: 13px;
+}
+
 a {
 	@extend %btn-font;
 	font-size: 22px;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100vw; /* Full width */
+	height: 100vh; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.1); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: white;
+	margin: auto;
+	padding: 30px;
+	border: 1px solid black;
+	width: 40%;
+	height: auto;
+}
+
+.modal-content > p {
+	padding: 20px;
+	text-align: left;
 }
