@@ -22,11 +22,18 @@ const getBookData = async function(keyword){
                 if(n.volumeInfo.authors.length > 1) {
                     bookObject.author = n.volumeInfo?.authors.join(", ") 
                 }   
+                if( n.volumeInfo.description && n.volumeInfo.description.length > 400) {
 
-                // if(n.volumeInfo.authors && n.volumeInfo.authors.length > 1) {
-                //     bookObject.author = n.volumeInfo?.authors.join(", ") 
-                // }   
-                return   bookObject       
+                    console.log(n.volumeInfo.description.length )
+                    const lastDot = n.volumeInfo.description.indexOf(".", 400)
+                    console.log(lastDot)
+                    bookObject.description = n.volumeInfo.description.slice(0, lastDot) + "."
+                } 
+                 
+ 
+                return   bookObject 
+                
+           
            })
         return infoArr
           }
