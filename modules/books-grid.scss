@@ -45,7 +45,7 @@ h4 {
 }
 
 .container__books-grid > div > * {
-	padding: 10px;
+	margin: 10px;
 }
 
 // .books-grid__card {
@@ -64,7 +64,7 @@ h4 {
 // }
 
 .container__books-grid > div > img {
-	height: 250px;
+	height: 200px;
 	width: auto;
 	margin-bottom: 15px;
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
@@ -91,9 +91,10 @@ h4 {
 // 	font-size: 12px;
 // }
 
-// .books-grid__decs > .author {
-// 	font-size: 16px;
-// 	text-transform: uppercase;
+.author {
+	font-size: 16px;
+	text-transform: uppercase;
+}
 // 	padding-bottom: 15px;
 // 	@include mixins.phone {
 // 		padding-bottom: 15px;

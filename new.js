@@ -7,75 +7,30 @@ const getBookData = async function(keyword){
  return data.items  
  }
 
-//  console.log(getBookData("lem"))
 
 
-const getInfo = async (data) => {
-    const info = await getBookData(data)
-    console.log(info)
-    const infoArr = info.map(n => {
+      const getInfo = async (data) => {
+        const info = await getBookData(data)
+        console.log(info)
+        const infoArr = info.map(n => {
+     const bookObject = {
+                title: n.volumeInfo?.title ?? "Title Unknown",
+                author: n.volumeInfo?.authors ?? "Author unknown",
+                description: n.volumeInfo?.description ?? "Sorry, this book does not have a description.",
+                img: n.volumeInfo.imageLinks?.thumbnail ?? "./img/default_book_cover_2.png"} 
+                
+                if(n.volumeInfo.authors.length > 1) {
+                    bookObject.author = n.volumeInfo?.authors.join(", ") 
+                }   
 
-
-        if(n.volumeInfo.imageLinks === undefined) {
-            const bookObject = {
-                title: n.volumeInfo.title,
-                author: n.volumeInfo.authors,
-                description:n.volumeInfo.description,
-                img: "https://cdn.pixabay.com/photo/2015/07/23/14/58/child-857021_960_720.jpg"}  
-                console.log(`This is book object${bookObject}`)
-                return bookObject //why doesn't this work
-            
-        }
-
-        const bookObject = {
-            title: n.volumeInfo.title,
-            author: n.volumeInfo.authors,
-            description: n.volumeInfo.description,
-            img: n.volumeInfo.imageLinks.thumbnail}
-            // console.log(`This is img link ${bookObject.image}`)
-
-        
-    if(n.volumeInfo.authors.length > 1) {
-        const bookObject = {
-            title: n.volumeInfo.title,
-            author: n.volumeInfo.authors.join(", "),
-            description: n.volumeInfo.description,
-            img: n.volumeInfo.imageLinks.thumbnail
-        }  
-            return bookObject
-    }
-
-    if(n.volumeInfo.description === undefined || n.volumeInfo.description === "") {
-        const bookObject = {
-            title: n.volumeInfo.title,
-            author: n.volumeInfo.authors,
-            description: `Sorry, this book does not have a description`,
-            img: n.volumeInfo.imageLinks.thumbnail
-        }  
-            return bookObject
-    }
-
-  
-    if(n.volumeInfo.description.length > 1000) {
-        const lastSpace = n.volumeInfo.description.indexOf(" ", 1000);
-        console.log(lastSpace)
-        const bookObject = {
-            title: n.volumeInfo.title,
-            author: n.volumeInfo.authors,
-            description: n.volumeInfo.description.slice(0, lastSpace + "..."),
-            img: n.volumeInfo.imageLinks.thumbnail
-         } 
-     console.log(bookObject.description)
-            return bookObject 
-    }
-
-
-
-return   bookObject})
-
-
-    return infoArr
-      }
+                // if(n.volumeInfo.authors && n.volumeInfo.authors.length > 1) {
+                //     bookObject.author = n.volumeInfo?.authors.join(", ") 
+                // }   
+                return   bookObject       
+           })
+        return infoArr
+          }
+    
 
 const button = document.querySelector("#btn");
 button.addEventListener("click", async (event) => {
@@ -105,6 +60,7 @@ imgElement.src = `${book.img}`;
         const textNode = document.createTextNode(titleText);
 
         const authorElement = document.createElement("p");
+        // authorElement.className = ".author" fix this
         const authorText = `${book.author}`;
         const textNodeAuthor = document.createTextNode(authorText);
 
