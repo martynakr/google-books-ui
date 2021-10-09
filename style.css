@@ -16,7 +16,7 @@ h4 {
   font-size: 24px;
 }
 
-.description, .book-finder__input, p {
+.description, .close, .book-finder__input, p {
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -138,10 +138,6 @@ p {
   transition: 0.5s ease;
 }
 
-.btn-again {
-  margin: 20px;
-}
-
 #btn.invisible {
   display: none;
 }
@@ -195,8 +191,8 @@ h3 {
   padding: 45px;
 }
 
-.search-form__btn.invisible {
-  display: none;
+.error-para {
+  padding-bottom: 20px;
 }
 
 #books-grid {
@@ -244,7 +240,6 @@ h4 {
   flex-direction: column;
   align-items: center;
   text-align: left;
-  cursor: pointer;
 }
 
 .container__books-grid > div > * {
@@ -296,8 +291,6 @@ a {
 
 /* The Modal (background) */
 .modal {
-  display: none;
-  /* Hidden by default */
   position: fixed;
   /* Stay in place */
   z-index: 1;
@@ -314,8 +307,9 @@ a {
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.8);
   /* Black w/ opacity */
+  display: none;
 }
 
 /* Modal Content */
@@ -327,10 +321,27 @@ a {
   width: 40%;
   height: auto;
 }
+@media only screen and (max-width: 992px) {
+  .modal-content {
+    width: 60%;
+  }
+}
 
 .modal-content > p {
   padding: 20px;
   text-align: left;
+}
+
+.modal-content > h4 {
+  padding-bottom: 20px;
+}
+
+.close {
+  background-color: white;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 footer {

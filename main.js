@@ -1,136 +1,125 @@
-// const request = fetch('https://www.googleapis.com/books/v1/volumes?q=search+terms')
+import {getInfo} from "./non-dom.js";
+import  { button} from "./dom.js";
 
-// console.log(request)
+button.addEventListener("click", async (event) => {
+    const input = document.querySelector(".book-finder__input");
+    const keyword = input.value;
+    if (!keyword) {
+        alert("Please enter a vaild keyword");
+        return;
+    }
+    const books = await getInfo(keyword);
+    console.log(books);
+    const bookItems = books.map((book) => {
+    const bookDiv = document.createElement("div")
+    bookDiv.className = "modal-trigger"
 
-const bookContainer = document.querySelectorAll(".container__books-grid")
+        const imgElement = document.createElement("img");
+        imgElement.src = `${book.img}`;
 
-
-const getTitle = function(data) {
-  const bookTitle = data.items[0].volumeInfo.title
-  console.log(bookTitle)
-  console.log(data.items.length)
-  return bookTitle
-}
-
-
-// const getTitle = function(data) {
-//   for(let i=0; i < data.items.length; i++) {
-// bookTitle += data.items[i].volumeInfo.title
-// console.log(bookTitle)
-//   } return bookTitle
-// }
-
-const getAuthor = function(data) {
-  const bookAuthors = data.items[0].volumeInfo.authors
-  if(bookAuthors.length > 1) {
-    const allAuthors = bookAuthors.join(", ")
-    console.log(allAuthors)
-
-    return allAuthors
-  } return bookAuthors
-}
-
-// const getAuthor = function(data) {
-//   for(let i=0; i < data.items.length; i++) {
-// bookAuthor += data.items[i].volumeInfo.authors
-// // if(bookAuthors.length > 1) {
-// //   const allAuthors = bookAuthors.join(", ")
-// //   console.log(allAuthors)
-
-//   }return bookAuthor
-// }
-
-  const getDesc = function(data) {
-    const bookDesc = data.items[0].volumeInfo.description
-    console.log(bookDesc)
-    return bookDesc
-  }
-
-  // const getDesc = function(data) {
-  //   const bookDesc = data.items[0].searchInfo.textSnippet
-  //   console.log(bookDesc)
-  //   return bookDesc
-  // }
+        const titleElement = document.createElement("h4");
+        const titleText = `${book.title}`;
+        const textNode = document.createTextNode(titleText);
 
 
+        const authorElement = document.createElement("p");
+        authorElement.className = "author" 
+        const authorText = `${book.author}`;
+        const textNodeAuthor = document.createTextNode(authorText);
 
-  // const getDesc = function(data) {
-  //   for(let i=0; i < data.items.length; i++) {
-  // bookDesc += data.items[i].volumeInfo.description
-  // console.log(bookDesc)
-  //   }return bookDesc
-  // }
+        const descElement = document.createElement("p");
+        descElement.className = "description" 
+        const descText = `${book.description}`;
+        const textNodeDesc = document.createTextNode(descText);
 
-  const getImg = function(data) {
-    const bookImg = data.items[0].volumeInfo.imageLinks.thumbnail
-    console.log(bookImg)
-    return bookImg
-  }
-
-  // const getImg = function(data) {
-  //   for(let i=0; i < data.items.length; i++) {
-  // bookImg += data.items[i].volumeInfo.imageLinks.thumbnail
-  // console.log(bookImg)
-  // 
-  //   }return bookImg
-  // }
+        titleElement.appendChild(textNode);
+        authorElement.appendChild(textNodeAuthor);
+        descElement.appendChild(textNodeDesc);
 
 
-  
+        bookDiv.appendChild(imgElement)
+        bookDiv.appendChild(titleElement)
+        bookDiv.appendChild(authorElement)
+        bookDiv.appendChild(descElement)
+ 
+        return bookDiv;
+    });
 
 
-  // do I need to add forEach here
-const renderBook = function (data) {
+    const bookContainer = document.querySelector(".container__books-grid")
+    const append = (parent) => (child) => parent.appendChild(child);
+    bookItems.forEach(append(bookContainer));
 
-  const html = `
- <div class="books-grid__card">
-<div class="books-grid__img">
-    <img src="${getImg(data)}" alt="">
-</div>
-<div class="books-grid__decs">
-    <h4>${getTitle(data)}</h4>
-    <p class ="author">${ getAuthor(data)}</p>
-    <p>${getDesc(data)}</p>
-</div>
-<div class="books-grid__card--overlay">
-    <a href="">Find out more</a>
-</div>
-</div>
-  `;
-  bookContainer.forEach(bookContainer => bookContainer.insertAdjacentHTML('beforeend', html));
-//  bookContainer.insertAdjacentHTML('beforeend', html);
-
-};
    
+    input.value = ""
+
+
+    // const modalTrigger = document.querySelectorAll(".modal-trigger")
+    // modalTrigger.forEach(modalTrigger => modalTrigger.addEventListener("click",async (e) => {
+
+    //     const modalDiv = document.createElement("div")
+    //     modalDiv.className = "modal"
+    //     const modalContDiv = document.createElement("div")
+    //     modalContDiv.className = "modal-content"
+       
+       
+    //     const books = await getInfo(keyword);
+    //     console.log(books);
+    //     const bookItems = books.map((book) => {
+         
+       
+    //     const pageElement = document.createElement("p");
+    //     const pageText = `PAGE COUNT: ${book.pageCount}`;
+    //     const textNodePage = document.createTextNode(pageText);
+    //     pageElement.appendChild(textNodePage)
+    //     modalContDiv.appendChild(pageElement)
+       
+    //     // const publishedElement = document.createElement("p");
+    //     // const publishedText = `PUBLISHED DATE: ${book.publishedDate}`;
+    //     // const textNodePublished = document.createTextNode(publishedText);
+    //     })
+       
+    //     const closeEl = document.createElement("button")
+    //     closeEl.className = "close"
+    //     const closeText = `x`;
+    //     const closeNodeCateg = document.createTextNode(closeText);
+       
+        
+    //     //     // elements inside the modal
+    //         closeEl.appendChild(closeNodeCateg)
+    //     //     titleElementModal.appendChild(textNodeModal)
+    //     //     categoriesElement.appendChild(textNodeCateg)
+    //     //     publishedElement.appendChild(textNodePublished)
+        
+       
+    //     bookContainer.appendChild(modalDiv)
+    //     modalDiv.appendChild(modalContDiv)
+    //     // modalContDiv.appendChild(publishedElement)
+       
+    //     modalContDiv.appendChild(closeEl)
+       
+    //     // modalContDiv.appendChild(titleElementModal)
+    //     // modalContDiv.appendChild(categoriesElement)
+       
+    //     const modal = document.querySelector(".modal")
+    //     const close = document.querySelector(".close")
+    //     modal.style.display = "block";
+    //     close.addEventListener("click", () => {
+    //         modal.remove()
+    //     })
+    //     window.onclick = function(event) {
+    //         if (event.target == modal) {
+    //             modal.remove()
+    //         }
+    //       }
+       
+    //    }))
+
+});
+
+
+
+
 
  
-
-
-
-
-const getBookData = async function(keyword){
-   const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`)
-      
-       const data = await response.json();
-     
-    
-       
-       console.log(data)
-       renderBook(data)
-      // getTitle(data)
-    
-return data
-        //  console.log(`The book's author is ${data.items[0].volumeInfo.authors}`)
-        //  console.log(`The book's description is ${data.items[0].volumeInfo.description}`)
-  
-}
-
-console.log(getBookData("Harry Potter"))
-// console.log(getBookData("Stanislaw Lem"))
-// console.log(getBookData("Crime and Punishment"))
-// console.log(getBookData("Franz Kafka"))
-// console.log(getBookData("javascript"))
-
-
-
 
