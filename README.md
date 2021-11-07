@@ -4,6 +4,8 @@ A page that allows users to search for books using various keywords, for example
 
 The page contains a input and a search button. When the search button is clicked, books are requested from the Google books API using the input value as a query string. The books then get rendered to the page.
 
+[Live Page](https://martynakr.github.io/google-books-ui/)
+
 ## Topics Learned
 - API
 - async/await functions
