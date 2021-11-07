@@ -240,6 +240,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   text-align: left;
+  cursor: pointer;
 }
 
 .container__books-grid > div > * {

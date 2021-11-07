@@ -1,4 +1,4 @@
-import {renderError} from "./dom.js";
+import {renderError} from "./render-error.js";
 
 const getInfo = async (data) => {
     const info = await getBookData(data) 
