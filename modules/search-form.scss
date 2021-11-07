@@ -1,0 +1,59 @@
+@use "./../partials/text-styles";
+@use "./../partials/palette";
+@use "./../mixins/mixins.scss";
+
+#book-finder {
+	width: 96%;
+	margin: auto;
+}
+
+h3 {
+	@extend %reg-heading;
+	margin-bottom: 20px;
+}
+
+.book-finder__input {
+	border-bottom: 2px solid black;
+	padding: 10px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	background-color: transparent;
+	margin: 20px;
+	width: 45%;
+
+	@extend %para;
+	@include mixins.landscape-tablet-and-smaller {
+		width: 90%;
+		font-size: 13px;
+	}
+
+	&.invisible {
+		display: none;
+	}
+}
+
+form {
+	@include mixins.landscape-tablet-and-smaller {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.book-finder__input:focus {
+	border: 2px solid red;
+}
+
+.container__search-form {
+	background-color: palette.$light-blue;
+	// width: 96%;
+	margin: auto;
+	margin-top: 2%;
+	text-align: center;
+	padding: 45px;
+}
+
+.error-para {
+	padding-bottom: 20px;
+}

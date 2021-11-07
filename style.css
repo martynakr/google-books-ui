@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600;1,700&display=swap");
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 76px;
+}
+
+h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 36px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+}
+
+.description, .close, .book-finder__input, p {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+a, .btn,
+#btn,
+.btn-again {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.header__container {
+  display: flex;
+  width: 96%;
+  margin: auto;
+  margin-top: 2%;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .header__container {
+    flex-direction: column-reverse;
+  }
+}
+
+.header__img {
+  width: 50vw;
+}
+@media only screen and (max-width: 768px) {
+  .header__img {
+    width: 96vw;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.header__textbox {
+  background-color: rgba(255, 230, 205, 0.8);
+  margin-left: -200px;
+  padding: 6%;
+  padding-left: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .header__textbox {
+    margin-left: -100px;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header__textbox {
+    margin-left: 0;
+    width: 90vw;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header__textbox > * {
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+    padding-top: 30px;
+  }
+}
+
+p {
+  word-wrap: normal;
+}
+
+.btn,
+#btn,
+.btn-again {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+  background-color: transparent;
+}
+@media only screen and (max-width: 768px) {
+  .btn__header,
+#btn__header,
+.btn-again__header {
+    margin-left: 40px;
+    margin-bottom: 20px;
+  }
+}
+.btn:hover,
+#btn:hover,
+.btn-again:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s ease;
+}
+
+#btn.invisible {
+  display: none;
+}
+
+#book-finder {
+  width: 96%;
+  margin: auto;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+.book-finder__input {
+  border-bottom: 2px solid black;
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  margin: 20px;
+  width: 45%;
+}
+@media only screen and (max-width: 992px) {
+  .book-finder__input {
+    width: 90%;
+    font-size: 13px;
+  }
+}
+.book-finder__input.invisible {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.book-finder__input:focus {
+  border: 2px solid red;
+}
+
+.container__search-form {
+  background-color: #cfdee6;
+  margin: auto;
+  margin-top: 2%;
+  text-align: center;
+  padding: 45px;
+}
+
+.error-para {
+  padding-bottom: 20px;
+}
+
+#books-grid {
+  margin-top: 90px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 576px) {
+  #books-grid {
+    margin-top: 40px;
+  }
+}
+
+.container__books-grid {
+  width: 96%;
+  text-align: center;
+  margin: 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+  .container__books-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .container__books-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .container__books-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+h4 {
+  text-align: center;
+}
+
+.container__books-grid > div {
+  border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.container__books-grid > div > * {
+  margin: 10px;
+}
+
+.container__books-grid > div > img {
+  height: 200px;
+  width: auto;
+  margin-bottom: 25px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.books-grid__decs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+  margin: 15px;
+}
+
+.books-grid__decs > h4 {
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+@media only screen and (max-width: 576px) {
+  .books-grid__decs > h4 {
+    padding-bottom: 15px;
+  }
+}
+
+.author {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.books-grid__card:hover .books-grid__card--overlay {
+  opacity: 0.95;
+}
+
+.description {
+  font-size: 13px;
+}
+
+a {
+  font-size: 22px;
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+  display: none;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid black;
+  width: 40%;
+  height: auto;
+}
+@media only screen and (max-width: 992px) {
+  .modal-content {
+    width: 60%;
+  }
+}
+
+.modal-content > p {
+  padding: 20px;
+  text-align: left;
+}
+
+.modal-content > h4 {
+  padding-bottom: 20px;
+}
+
+.close {
+  background-color: white;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #698fa3;
+  margin-top: 2%;
+  padding: 30px;
+}
+
+footer > p {
+  color: white;
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}

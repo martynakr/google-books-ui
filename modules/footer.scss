@@ -1,0 +1,13 @@
+@use "./../partials/text-styles";
+@use "./../partials/palette";
+
+footer {
+	background-color: palette.$dark-blue;
+	margin-top: 2%;
+	padding: 30px;
+}
+
+footer > p {
+	color: white;
+	text-align: center;
+}

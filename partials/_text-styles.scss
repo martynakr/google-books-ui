@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600;1,700&display=swap");
+
+%large-heading {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 76px;
+}
+
+%reg-heading {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 36px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+%small-heading {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 24px;
+}
+
+%para {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+%btn-font {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}

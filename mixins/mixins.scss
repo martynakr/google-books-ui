@@ -1,0 +1,60 @@
+//media queries //
+$phone: 576px;
+$tablet: 768px;
+$landscape-tablet: 992px;
+$laptop: 1200px;
+$xl: 1400px;
+
+@mixin phone {
+	@media only screen and (max-width: $phone) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media only screen and (min-width: $phone + 1) and (max-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin landscape-tablet {
+	@media only screen and (min-width: $tablet + 1) and (max-width: $landscape-tablet) {
+		@content;
+	}
+}
+
+@mixin landscape-tablet-and-smaller {
+	@media only screen and (max-width: $landscape-tablet) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media only screen and (min-width: $landscape-tablet + 1) and (max-width: $laptop) {
+		@content;
+	}
+}
+
+@mixin large-screen {
+	@media only screen and (min-width: $laptop + 1) and(max-width: $xl) {
+		@content;
+	}
+}
+
+@mixin x-large-screen {
+	@media only screen and (min-width: $xl+1) {
+		@content;
+	}
+}
+
+@mixin laptop-and-smaller {
+	@media only screen and (max-width: $laptop) {
+		@content;
+	}
+}
+
+@mixin tablet-and-smaller {
+	@media only screen and (max-width: $tablet) {
+		@content;
+	}
+}
